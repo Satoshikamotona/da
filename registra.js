@@ -275,10 +275,14 @@ sendTelegramNotification: async function(userAddress, referrerAddress, transacti
         for (let UserID = 1; UserID <= NumberOfUsers; UserID++) {
 
             const UserAdress = await this.contract.methods.idToAddress(UserID).call();
+
             let DivClaimed = await this.contract.methods.totalDivClaimed(UserAdress).call();
+       console.log("l'adress " +UserAdress +"a gagner " + DivClaimed +"BNB")
 
             TotalDivClaimed += parseFloat(DivClaimed);
             TotalDivBNB = TotalDivClaimed / 1000000000000000000;
+            console.log(TotalDivClaimed)
+
         }
 
         return TotalDivBNB;
@@ -364,5 +368,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 
+
+   
 
    
