@@ -135,7 +135,7 @@ connectWallet: async function() {
  await this.connectContract();
  await this.connectWallet();
  await this.updateWalletButton();
-
+ await this.calculateBNBclaimed();
 
 
 const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
