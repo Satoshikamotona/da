@@ -1,258 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <link rel="icon" href="Icon.ico" type="image/x-icon">
 
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="login (1) (1).css">
-    <title>GalaxyMining - Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <title>galaxyMining - registration</title>
     <script src="https://cdn.jsdelivr.net/npm/web3@1.4.0/dist/web3.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+
 </head>
+
 <body>
     <header>
-
+        
         <button id="connectWalletButton" class="connect-btn">Connect Wallet</button>
         <div id="connectcontract" class="contract-status">
             <span id="contractIcon"></span> 
             <span id="contractStatus">Not connected to smart contract</span>
         </div>
-    
-    </header>
-    <main>
-        <div id="investment-levels" class="investment-container">
-            <div id="investment-slider" class="slider">
-              <div id="level-indicator" class="indicator"></div>
-            </div>
-            <div id="investment-info" class="info">
-              <p>Level <span id="current-level">1</span></p>
-              <p>Potential earnings per day: <span id="potential-gain">0</span> BNB</p>
-            </div>
-          </div>
-          
-          <div class="buttons">
-            <button onclick="location.href='registration.html';" class="register-button">Register</button>
-            <button onclick="location.href='Preview.html';" class="login-button">Buy Level</button>
+        
+
+        <div class="logo-container">
+            <h1 class="site-title">GalaxyMining</h1>
+            <img src="17.png" alt="Binance Smart Chain Logo" class="bnb-logo">
         </div>
+ 
+            
+        </header>
+        <div>
+
+        <h2 ><span class="highlight-text">Welcome to Galaxy Mining</span></h2>
+    
+            
+
+  
+
+    <main>
+        <section class="container text-center">
+            <div class="registration-container">
+                <h4>Connect your wallet to register</h4>
+                <!-- Registration Form -->
+                <form id="registrationForm">
+                    <label for="parrain">Upline ID</label>
+                    <input type="text" id="parrain" name="parrain" placeholder="Enter your sponsor's ID">
+                    <input type="submit" value="Register">
+                </form>
+                
+                
+                <p id="registrationFee">Registration requires 0.02 BNB</p>
+
+            </div>
+            <p class="loginpath">If you are already registered, <a href="Home.html">click here</a> to log in.</p>
+        </section>
+
+        <section class="text-center">
+            <h2>Contact</h2>
+            <p>customerservice@galaxy-mining.space </p>
+        </section>
+              <a href="https://t.me/galaxy_account_bot" class="telegram-button" target="_blank">
+                    <img src="906377.png" alt="Telegram">
+                </a>
     </main>
 
-    <footer class="text-center">
+
+<style>
+
+@keyframes shadow-animation {
+            0% {
+                box-shadow: 0 0 15px #ffd700;
+            }
+            33% {
+                box-shadow: 0 0 15px #ffffff;
+            }
+            66% {
+                box-shadow: 0 0 15px #00ffa6;
+            }
+            100% {
+                box-shadow: 0 0 15px #ffd700;
+            }
+        }
+.telegram-button {
+
+  
+    position: fixed;
+    bottom: 20px;  /* distance from bottom */
+    right: 20px;   /* distance from right */
+    width: 50px;   /* button size */
+    height: 50px;  /* button size */
+    border-radius: 50%; /* makes it round */
+    background-color: #0088cc; /* Telegram color, you can choose your own */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* adds shadow for modern look */
+    display: flex;
+    align-items: center;
+    animation: pulse 2s infinite; /* appliquer l'animation pulse */
+
+    justify-content: center;
+
+
+}
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+.telegram-button:hover {
+    transform: scale(1.1); /* agrandit légèrement le bouton au survol */
+    box-shadow: 0 0 20px yellow, 0 0 20px white, 0 0 20px green; /* ombres plus prononcées au survol */
+}
+.telegram-button img {
+    width: 60%; /* size of the Telegram icon inside the button */
+}
+
+.golden-text {
+    color: gold; /* Utilisez 'gold' ou une valeur hexadécimale spécifique comme #ffd700 pour jaune doré */
+}
+
+</style>
+
+  <script src="registra.js"></script>
+        <footer class="text-center">
         <p>&copy; galaxyMining</p>
     </footer>
-    <script>
 
- 
-var galaxyMining = {
-    account: null,
-    contract: null,
-    userAccount: null,
-
-    connectContract: async function() {
-       const ABI =[{"inputs":[{"internalType":"address","name":"admin","type":"address"},{"internalType":"address","name":"ADContract","type":"address"},{"internalType":"uint256","name":"Vpercent","type":"uint256"},{"internalType":"uint256","name":"ForHold","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"previousOwner","type":"address"},{"indexed":true,"internalType":"address","name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"A","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"Admin","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"UserToUpgrade","type":"address"},{"internalType":"uint256","name":"LevelToBuy","type":"uint256"}],"name":"BuyLevel","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[{"internalType":"address","name":"UserToUpgrade","type":"address"},{"internalType":"uint256","name":"LevelToBuy","type":"uint256"}],"name":"BuyLevelByOwner","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[{"internalType":"address","name":"UserToCheck","type":"address"}],"name":"CheckUserLastUpdate","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"Claim_DIV","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"G56Matrix","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"USER","type":"address"}],"name":"GetDivPerSec","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address payable","name":"_To","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"HoldFunds","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address payable","name":"_To","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"HoldFundsbyAdmin","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"LastUpdate","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"Level10Income","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"NumberOfUsers","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newRate","type":"uint256"}],"name":"SetRate","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"newpercent","type":"uint256"}],"name":"SetVirtualPercentage","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"NewAddress","type":"address"}],"name":"SetWeeklyAddress","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"TotalIncome","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"UserTo","type":"address"}],"name":"UpdateLastUpdate","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"UplineEarnings","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"UserID","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"Users","outputs":[{"internalType":"uint256","name":"id","type":"uint256"},{"internalType":"address","name":"userAddress","type":"address"},{"internalType":"address","name":"referrer","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"VirtualDownline","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"VirtualParent","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"WeeklyContract","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"_owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"availableDiv","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"user","type":"address"}],"name":"calculateDiv","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"checkUpdate","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"directIncome","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"directIncomefrom10","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"directPartnersCount","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"divPerSecInEther","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"freeIncome","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"user","type":"address"}],"name":"getDirectPartners","outputs":[{"internalType":"address[]","name":"","type":"address[]"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"getLastLevelBuyer","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"getLastRegistration","outputs":[{"internalType":"uint256","name":"userID","type":"uint256"},{"internalType":"address","name":"referrer","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"user","type":"address"}],"name":"getTotalTeamSize","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"user","type":"address"}],"name":"getTotalVirtualTeamSize","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"user","type":"address"},{"internalType":"uint256","name":"level","type":"uint256"}],"name":"hasLevel","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"_referrer","type":"address"},{"internalType":"uint256","name":"_requiredLevel","type":"uint256"}],"name":"hasRequiredLevel","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"idToAddress","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"isAdmin","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"isOwner","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"isRegistered","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"l","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"lastDivClaimed","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"lastLevelBuyer","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"lastUserID","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"levelPrices","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"randomUser","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"referrers","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"UserToRegister","type":"address"},{"internalType":"address","name":"referrerAddress","type":"address"}],"name":"registerUser","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[{"internalType":"address","name":"UserToRegister","type":"address"},{"internalType":"address","name":"referrerAddress","type":"address"}],"name":"registerUserByOwner","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"registrationFees","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"renounceOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"newAdmin","type":"address"}],"name":"setAdmin","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"newOwner","type":"address"}],"name":"setOwner","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"newfees","type":"uint256"}],"name":"setholdingFees","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"totalDivClaimed","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"totalInevest","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"totalLevels","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"USERTO","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"updateDivPerSecByOWner","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"},{"internalType":"uint256","name":"","type":"uint256"}],"name":"userPartners","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"},{"internalType":"uint256","name":"","type":"uint256"}],"name":"userVirtualPartners","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"virtualReward","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"stateMutability":"payable","type":"receive"}];
-          const Address = "0x597b599d2D197C49456b1C20Aae2C4BF1576396d";
-
-          try {
-            window.web3 = new Web3(window.ethereum);
-            await window.ethereum.request({ method: 'eth_requestAccounts' });
-            this.account = (await web3.eth.getAccounts())[0];
-            this.contract = new web3.eth.Contract(ABI, Address);
-            console.log("Connected to smart contract");
-        } catch (error) {
-            console.error("Error connecting to contract: ", error);
-        }
-    },
-
-
-
-
-
-
-connectWallet: async function() {
-    if (window.ethereum) {
-        try {
-            const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-            this.userAccount = accounts[0];
-            this.updateWalletButton();
-
-            // Mettre à jour le texte dans #contractStatus
-            const contractStatus = document.getElementById("contractStatus");
-            if (this.contract) {
-                contractStatus.textContent = "Connected to smart contract";
-            } else {
-                contractStatus.textContent = "Not connected to smart contract";
-            }
-
-            // Autres actions après la connexion au portefeuille...
-        } catch (error) {
-            console.error("Error connecting to wallet:", error);
-        }
-    } else {
-        console.log("Ethereum environment not detected. Please install MetaMask!");
-
-        // Mettre à jour le texte dans #contractStatus
-        const contractStatus = document.getElementById("contractStatus");
-        contractStatus.textContent = "Bnb Smart Chain environment not detected. Please install MetaMask!";
-    }
-},
-
-
-
-    updateWalletButton:async function() {
-        const connectButton = document.getElementById('connectWalletButton');
-        if (this.userAccount) {
-            const truncatedAddress = this.userAccount.substr(0, 6) + '...' + this.userAccount.substr(-4);
-            connectButton.textContent = truncatedAddress;
-            // Ajoutez des styles supplémentaires si nécessaire
-        } else {
-            connectButton.textContent = "Connect Wallet";
-        }
-    },
-    async calculateBNBclaimed() {
-    let TotalDivClaimed = 0; 
-
-    const NumberOfUsers = await this.contract.methods.NumberOfUsers().call();
-
-    for (let UserID = 1; UserID <= NumberOfUsers; UserID++) { 
-
-        const UserAdress = await this.contract.methods.idToAddress(UserID).call();
-        let DivClaimed = await this.contract.methods.totalDivClaimed(UserAdress).call();
-
-        
-        TotalDivClaimed += parseFloat(DivClaimed); 
-        TotalDivBNB = TotalDivClaimed / 1000000000000000000;
-    }
     
-    return TotalDivBNB; 
-},
-
-       
-
-
- init: async function() {
- await this.connectContract();
- await this.connectWallet();
- await this.updateWalletButton();
- await this.calculateBNBclaimed();
-
-
-const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-if (accounts.length === 0) {
-   console.error("No Ethereum accounts found.");
-   return;
-}
-
-this.userAccount = accounts[0];
-const truncatedAddress = this.userAccount.substring(0, 6) + '...' + this.userAccount.substring(this.userAccount.length - 4);
-$('.connectWalletButton').text(truncatedAddress);
-
-const buttons = document.querySelectorAll('.buy-level-button');
-
-buttons.forEach(button => {
-  button.addEventListener('click', (event) => this.buyLevel(event));
-});
-}
-};
- 
-
-$(document).ready(async () => {
-    try {
-        await galaxyMining.init();
-        document.getElementById('loginButton').addEventListener('click', galaxyMining.handleLogin);
-        document.getElementById('connectWalletButton').addEventListener('click', galaxyMining.handleConnectWallet);
-
-    } catch (error) {
-        console.error("Error in Ethereum interaction:", error);
-    }
-});
-    
-
-document.addEventListener('DOMContentLoaded', function() {
-    const galaxyText = document.querySelector('.page-title');
-
-    if (galaxyText) {
-        setInterval(() => {
-            galaxyText.textContent = galaxyText.textContent === "GAXALY" ? "SUCCESS" : "GALAXY";
-        }, 1000);
-    }
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    const galaxyText = document.querySelector('.page-title');
-
-    if (galaxyText) {
-        setInterval(() => {
-            galaxyText.classList.add('fade-trace'); // Ajouter l'animation
-            setTimeout(() => {
-                galaxyText.textContent = galaxyText.textContent === "GAXALY" ? "SUCCESS" : "GAXALY";
-            }, 500); // Changer le texte au milieu de l'animation
-            setTimeout(() => galaxyText.classList.remove('fade-trace'), 1000); // Enlever l'animation après 1s
-        }, 2000);
-    }
-});const levelIndicator = document.getElementById('level-indicator');
-const currentLevel = document.getElementById('current-level');
-const potentialGain = document.getElementById('potential-gain');
-const slider = document.getElementById('investment-slider');
-
-// Gains fixes à chaque niveau
-const gains = [
-  "0.0008 BNB", "0.0016 BNB", "0.0024 BNB", "0.0048 BNB", 
-  "0.0096 BNB", "0.0184 BNB", "0.036 BNB", "0.068 BNB", 
-  "0.136 BNB", "0.24 BNB"
-];
-
-let isDragging = false;
-
-const updatePosition = (clientX) => {
-  const rect = slider.getBoundingClientRect();
-  const sliderWidth = rect.width;
-  const offsetLeft = rect.left;
-  let newPosition = clientX - offsetLeft;
-  newPosition = Math.max(0, Math.min(newPosition, sliderWidth));
-
-  let levelIndex = Math.round((newPosition / sliderWidth) * (gains.length - 1));
-  levelIndex = Math.max(0, Math.min(levelIndex, gains.length - 1));
-
-  const positionPercentage = (levelIndex / (gains.length - 1)) * 100;
-  levelIndicator.style.left = `calc(${positionPercentage}% - 15px)`;
-
-  currentLevel.textContent = levelIndex + 1;
-  potentialGain.textContent = gains[levelIndex];
-};
-
-slider.addEventListener('mousedown', (e) => {
-  isDragging = true;
-  updatePosition(e.clientX);
-});
-
-document.addEventListener('mousemove', (e) => {
-  if (isDragging) {
-    updatePosition(e.clientX);
-  }
-});
-
-document.addEventListener('mouseup', () => {
-  isDragging = false;
-});
-
-// Gestion des événements tactiles pour mobile
-slider.addEventListener('touchstart', (e) => {
-  isDragging = true;
-  updatePosition(e.touches[0].clientX);
-}, { passive: true });
-
-document.addEventListener('touchmove', (e) => {
-  if (isDragging) {
-    updatePosition(e.touches[0].clientX);
-  }
-}, { passive: true });
-
-document.addEventListener('touchend', () => {
-  isDragging = false;
-});
-
-
-    </script>
 </body>
+
 </html>
